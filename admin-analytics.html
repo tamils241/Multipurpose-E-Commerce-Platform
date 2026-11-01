@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Admin - Stackly</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dashboard-page">
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar" id="dashboardSidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <img src="images/logo/logo.webp" alt="Stackly" class="logo-img">
+                </a>
+                <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <p class="sidebar-label">Main</p>
+                <a href="admin-dashboard.html" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                    Overview
+                </a>
+                <a href="admin-products.html" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                        <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                    </svg>
+                    Products
+                    <span class="sidebar-count">156</span>
+                </a>
+                <a href="admin-orders.html" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39A2 2 0 0 0 9.66 17h8.66a2 2 0 0 0 1.97-1.61L23 6H6"></path>
+                    </svg>
+                    Orders
+                    <span class="sidebar-count">48</span>
+                </a>
+                <a href="admin-customers.html" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    Customers
+                </a>
+                <a href="admin-analytics.html" class="sidebar-link active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="20" x2="12" y2="10"></line>
+                        <line x1="18" y1="20" x2="18" y2="4"></line>
+                        <line x1="6" y1="20" x2="6" y2="16"></line>
+                    </svg>
+                    Analytics
+                </a>
+                
+                <p class="sidebar-label">System</p>
+                <a href="admin-settings.html" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    Settings
+                </a>
+                <a href="login.html" class="sidebar-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                        <polyline points="16 17 21 12 16 7"></polyline>
+                        <line x1="21" y1="12" x2="9" y2="12"></line>
+                    </svg>
+                    Logout
+                </a>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="sidebar-card">
+                    <strong>Store Status</strong>
+                    All systems are running smoothly.
+                    <span class="sidebar-status">Online</span>
+                </div>
+            </div>
+        </aside>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        
+        <!-- Main -->
+        <div class="dashboard-main">
+            <header class="dashboard-topbar">
+                <button class="topbar-toggle" id="sidebarToggle" aria-label="Open menu">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+                
+                <div class="topbar-search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <input type="text" placeholder="Search reports, metrics, products...">
+                </div>
+                
+                <div class="topbar-actions">
+                    <a href="index.html" class="topbar-icon store-link" title="View store" aria-label="View store">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </a>
+                    <div class="topbar-notifications">
+                        <button class="topbar-icon notification-btn" id="notificationBtn" aria-label="Notifications" aria-haspopup="true" aria-expanded="false">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                            </svg>
+                            <span class="notification-dot"></span>
+                        </button>
+                        <div class="notification-panel" id="notificationPanel">
+                            <div class="notification-panel-header">
+                                <h3>Notifications</h3>
+                                <span class="notification-badge">3 new</span>
+                            </div>
+                            <div class="notification-list">
+                                <a href="admin-orders.html" class="notification-item">
+                                    <span class="notification-item-icon orange">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                                        </svg>
+                                    </span>
+                                    <span class="notification-item-content">
+                                        <span class="notification-item-title">New order received</span>
+                                        <span class="notification-item-text">Order #ORD-7841 for $249.00</span>
+                                        <span class="notification-item-time">2 minutes ago</span>
+                                    </span>
+                                </a>
+                                <a href="admin-products.html" class="notification-item">
+                                    <span class="notification-item-icon red">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                                        </svg>
+                                    </span>
+                                    <span class="notification-item-content">
+                                        <span class="notification-item-title">Low stock warning</span>
+                                        <span class="notification-item-text">Wireless Headphones has only 3 items left</span>
+                                        <span class="notification-item-time">25 minutes ago</span>
+                                    </span>
+                                </a>
+                                <a href="admin-customers.html" class="notification-item">
+                                    <span class="notification-item-icon green">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                            <circle cx="8.5" cy="7" r="4"></circle>
+                                            <line x1="20" y1="8" x2="20" y2="14"></line>
+                                            <line x1="23" y1="11" x2="17" y2="11"></line>
+                                        </svg>
+                                    </span>
+                                    <span class="notification-item-content">
+                                        <span class="notification-item-title">New customer registered</span>
+                                        <span class="notification-item-text">Marcus Reed just created an account</span>
+                                        <span class="notification-item-time">1 hour ago</span>
+                                    </span>
+                                </a>
+                            </div>
+                            <a href="admin-customers.html" class="notification-view-all">View all notifications</a>
+                        </div>
+                    </div>
+                    <div class="topbar-profile">
+                        <div class="profile-avatar">AD</div>
+                        <div class="profile-info">
+                            <span class="profile-name">Alex Morgan</span>
+                            <span class="profile-role">Administrator</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+            <main class="dashboard-content">
+                <div class="dashboard-heading">
+                    <div>
+                        <h1>Analytics</h1>
+                        <p>Measure performance and uncover growth opportunities.</p>
+                    </div>
+                    <select class="admin-select" aria-label="Date range">
+                        <option>Last 30 days</option>
+                        <option>Last 7 days</option>
+                        <option>Last 90 days</option>
+                        <option>This year</option>
+                    </select>
+                </div>
+                
+                <div class="dashboard-stats">
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-top">
+                            <div class="dash-stat-icon orange">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <span class="dash-trend up">+12.5%</span>
+                        </div>
+                        <div class="dash-stat-value">$48,295</div>
+                        <div class="dash-stat-label">Total Revenue</div>
+                    </div>
+                    
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-top">
+                            <div class="dash-stat-icon blue">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39A2 2 0 0 0 9.66 17h8.66a2 2 0 0 0 1.97-1.61L23 6H6"></path>
+                                </svg>
+                            </div>
+                            <span class="dash-trend up">+8.2%</span>
+                        </div>
+                        <div class="dash-stat-value">1,248</div>
+                        <div class="dash-stat-label">Total Orders</div>
+                    </div>
+                    
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-top">
+                            <div class="dash-stat-icon purple">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                                    <polyline points="17 6 23 6 23 12"></polyline>
+                                </svg>
+                            </div>
+                            <span class="dash-trend up">+0.4%</span>
+                        </div>
+                        <div class="dash-stat-value">3.42%</div>
+                        <div class="dash-stat-label">Conversion Rate</div>
+                    </div>
+                    
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-top">
+                            <div class="dash-stat-icon green">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+                                    <line x1="12" y1="18" x2="12" y2="22"></line>
+                                    <line x1="12" y1="2" x2="12" y2="6"></line>
+                                </svg>
+                            </div>
+                            <span class="dash-trend up">+1.9%</span>
+                        </div>
+                        <div class="dash-stat-value">$86.40</div>
+                        <div class="dash-stat-label">Avg. Order Value</div>
+                    </div>
+                </div>
+                
+                <div class="dashboard-grid-2">
+                    <section class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div>
+                                <h2>Revenue Overview</h2>
+                                <p>Monthly revenue for the current year</p>
+                            </div>
+                            <a href="404.html" class="card-link">Download Report</a>
+                        </div>
+                        <div class="chart-legend">
+                            <span><span class="legend-dot"></span>Revenue</span>
+                        </div>
+                        <div class="chart-bars tall">
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 38%;"></div></div>
+                                <span>Jan</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 44%;"></div></div>
+                                <span>Feb</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 52%;"></div></div>
+                                <span>Mar</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 48%;"></div></div>
+                                <span>Apr</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 61%;"></div></div>
+                                <span>May</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 57%;"></div></div>
+                                <span>Jun</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 69%;"></div></div>
+                                <span>Jul</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 74%;"></div></div>
+                                <span>Aug</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 68%;"></div></div>
+                                <span>Sep</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 82%;"></div></div>
+                                <span>Oct</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 90%;"></div></div>
+                                <span>Nov</span>
+                            </div>
+                            <div class="chart-bar-wrap">
+                                <div class="chart-bar-track"><div class="chart-bar" style="height: 96%;"></div></div>
+                                <span>Dec</span>
+                            </div>
+                        </div>
+                        <div class="analytics-summary">
+                            <div class="analytics-summary-item">
+                                <span>Best month</span>
+                                <strong>December</strong>
+                            </div>
+                            <div class="analytics-summary-item">
+                                <span>Monthly average</span>
+                                <strong>$4,024</strong>
+                            </div>
+                            <div class="analytics-summary-item">
+                                <span>Growth vs last year</span>
+                                <strong>+18.6%</strong>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div>
+                                <h2>Traffic Sources</h2>
+                                <p>Where your visitors come from</p>
+                            </div>
+                        </div>
+                        <div class="category-list">
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Organic Search</span>
+                                    <span>38%</span>
+                                </div>
+                                <div class="dash-progress"><span style="width: 38%;"></span></div>
+                            </div>
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Direct</span>
+                                    <span>27%</span>
+                                </div>
+                                <div class="dash-progress"><span class="blue" style="width: 27%;"></span></div>
+                            </div>
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Social Media</span>
+                                    <span>21%</span>
+                                </div>
+                                <div class="dash-progress"><span class="green" style="width: 21%;"></span></div>
+                            </div>
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Email Campaigns</span>
+                                    <span>9%</span>
+                                </div>
+                                <div class="dash-progress"><span class="purple" style="width: 9%;"></span></div>
+                            </div>
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Referrals</span>
+                                    <span>5%</span>
+                                </div>
+                                <div class="dash-progress"><span style="width: 5%;"></span></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <section class="dashboard-card">
+                    <div class="dashboard-card-header">
+                        <div>
+                            <h2>Top Selling Products</h2>
+                            <p>Best performers by units sold this month</p>
+                        </div>
+                        <a href="admin-products.html" class="card-link">View All Products</a>
+                    </div>
+                    <div class="table-wrap">
+                        <table class="dashboard-table">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Category</th>
+                                    <th>Units Sold</th>
+                                    <th>Revenue</th>
+                                    <th>Stock</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="table-product">
+                                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop" alt="Wireless Bluetooth Headphones" class="product-thumb">
+                                            <div>
+                                                <span class="table-product-name">Wireless Bluetooth Headphones</span>
+                                                <span class="table-subtext">SKU: STK-1001</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Electronics</td>
+                                    <td>1,248</td>
+                                    <td>$112,317</td>
+                                    <td>84</td>
+                                    <td><span class="dash-trend up">+18.2%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-product">
+                                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=100&h=100&fit=crop" alt="Smart Watch Series 5" class="product-thumb">
+                                            <div>
+                                                <span class="table-product-name">Smart Watch Series 5</span>
+                                                <span class="table-subtext">SKU: STK-1002</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Watches</td>
+                                    <td>642</td>
+                                    <td>$192,593</td>
+                                    <td>12</td>
+                                    <td><span class="dash-trend up">+11.4%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-product">
+                                            <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=100&h=100&fit=crop" alt="Men's Casual Cotton T-Shirt" class="product-thumb">
+                                            <div>
+                                                <span class="table-product-name">Men's Casual Cotton T-Shirt</span>
+                                                <span class="table-subtext">SKU: STK-1003</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Fashion</td>
+                                    <td>918</td>
+                                    <td>$22,940</td>
+                                    <td>6</td>
+                                    <td><span class="dash-trend down">-2.7%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-product">
+                                            <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=100&h=100&fit=crop" alt="Moisturizing Face Cream" class="product-thumb">
+                                            <div>
+                                                <span class="table-product-name">Moisturizing Face Cream</span>
+                                                <span class="table-subtext">SKU: STK-1005</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Beauty</td>
+                                    <td>487</td>
+                                    <td>$15,823</td>
+                                    <td>156</td>
+                                    <td><span class="dash-trend up">+7.6%</span></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="table-product">
+                                            <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=100&h=100&fit=crop" alt="Running Shoes" class="product-thumb">
+                                            <div>
+                                                <span class="table-product-name">Running Shoes</span>
+                                                <span class="table-subtext">SKU: STK-1006</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Sports</td>
+                                    <td>366</td>
+                                    <td>$29,276</td>
+                                    <td>32</td>
+                                    <td><span class="dash-trend up">+4.9%</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <div class="dashboard-grid-2">
+                    <section class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div>
+                                <h2>Sales by Category</h2>
+                                <p>Share of total revenue</p>
+                            </div>
+                        </div>
+                        <div class="category-list">
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Electronics</span>
+                                    <span>42%</span>
+                                </div>
+                                <div class="dash-progress"><span style="width: 42%;"></span></div>
+                            </div>
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Fashion</span>
+                                    <span>28%</span>
+                                </div>
+                                <div class="dash-progress"><span class="blue" style="width: 28%;"></span></div>
+                            </div>
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Home &amp; Living</span>
+                                    <span>18%</span>
+                                </div>
+                                <div class="dash-progress"><span class="green" style="width: 18%;"></span></div>
+                            </div>
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Beauty &amp; Care</span>
+                                    <span>12%</span>
+                                </div>
+                                <div class="dash-progress"><span class="purple" style="width: 12%;"></span></div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <section class="dashboard-card">
+                        <div class="dashboard-card-header">
+                            <div>
+                                <h2>Top Locations</h2>
+                                <p>Revenue by customer country</p>
+                            </div>
+                        </div>
+                        <div class="category-list">
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>United States</span>
+                                    <span>$21,480</span>
+                                </div>
+                                <div class="dash-progress"><span style="width: 64%;"></span></div>
+                            </div>
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>United Kingdom</span>
+                                    <span>$9,850</span>
+                                </div>
+                                <div class="dash-progress"><span class="blue" style="width: 34%;"></span></div>
+                            </div>
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Canada</span>
+                                    <span>$7,420</span>
+                                </div>
+                                <div class="dash-progress"><span class="green" style="width: 26%;"></span></div>
+                            </div>
+                            <div class="category-row">
+                                <div class="category-row-top">
+                                    <span>Australia</span>
+                                    <span>$5,130</span>
+                                </div>
+                                <div class="dash-progress"><span class="purple" style="width: 18%;"></span></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <p class="dashboard-footer">&copy; 2026 Stackly. All rights reserved.</p>
+            </main>
+        </div>
+    </div>
+    
+    <script src="js/dashboard.js"></script>
+</body>
+</html>
