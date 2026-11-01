@@ -34,9 +34,14 @@ function validateContactForm() {
     // Clear previous errors
     document.querySelectorAll('.error-message').forEach(el => el.remove());
     
-    if (name && !validateRequired(name.value)) {
-        showError(name, 'Name is required');
-        isValid = false;
+    if (name) {
+        if (!validateRequired(name.value)) {
+            showError(name, 'Name is required');
+            isValid = false;
+        } else if (!validateName(name.value)) {
+            showError(name, 'Name must be 1-16 letters with no numbers, spaces, or special characters');
+            isValid = false;
+        }
     }
     
     if (email) {
@@ -213,8 +218,25 @@ document.addEventListener('DOMContentLoaded', () => {
             if (validateContactForm()) {
                 alert('Thank you for your message! We will get back to you soon.');
                 contactForm.reset();
+            } else {
+                const email = document.getElementById('contactEmail');
+                if (email && email.value.trim() && !validateEmail(email.value)) {
+                    alert('Please enter a valid email address.');
+                } else {
+                    alert('Please fix the highlighted errors and try again.');
+                }
             }
         });
+
+        const contactEmail = document.getElementById('contactEmail');
+        if (contactEmail) {
+            contactEmail.addEventListener('blur', () => {
+                const value = contactEmail.value.trim();
+                if (value && !validateEmail(value)) {
+                    alert('Please enter a valid email address.');
+                }
+            });
+        }
     }
     
     // Login form
@@ -254,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    document.querySelectorAll('#firstName, #lastName').forEach(input => {
+    document.querySelectorAll('#firstName, #lastName, #contactName').forEach(input => {
         input.addEventListener('input', () => {
             const cleaned = input.value.replace(/[^A-Za-z]/g, '').slice(0, 16);
             if (input.value !== cleaned) input.value = cleaned;

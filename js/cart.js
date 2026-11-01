@@ -145,7 +145,7 @@ function renderCart() {
         itemsHTML += `
             <div class="cart-item">
                 <div class="cart-item-info">
-                    <img src="${item.image}" alt="${item.name}" class="cart-item-img" onerror="this.src='https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=200&h=200&fit=crop'">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-img" onerror="this.src='images/fallback.webp'">
                     <div class="cart-item-details">
                         <h4>${item.name}</h4>
                         <p>SKU: STK-${item.id.toString().padStart(6, '0')}</p>

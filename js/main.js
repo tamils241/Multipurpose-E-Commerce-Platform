@@ -100,7 +100,7 @@ function createProductCard(product) {
     return `
         <div class="product-card">
             <div class="product-img-container">
-                <img src="${product.image}" alt="${product.name}" class="product-img" onerror="this.src='https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&h=500&fit=crop'">
+                <img src="${product.image}" alt="${product.name}" class="product-img" onerror="this.src='images/fallback.webp'">
                 ${badgeHTML}
                 <button class="wishlist-btn" data-product-id="${product.id}" onclick="toggleWishlist(${product.id})" title="Add to wishlist">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
