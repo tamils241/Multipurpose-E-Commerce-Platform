@@ -5,29 +5,110 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobileMenu');
     const mobileMenuClose = document.getElementById('mobileMenuClose');
     const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-    
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-            mobileMenuOverlay.classList.add('active');
-            document.body.style.overflow = 'hidden';
+
+    function openMobileMenu() {
+        if (!mobileMenu || !mobileMenuOverlay) return;
+        mobileMenu.classList.add('active');
+        mobileMenuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMobileMenu() {
+        if (!mobileMenu || !mobileMenuOverlay) return;
+        mobileMenu.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+        if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    if (hamburger && mobileMenu && mobileMenuOverlay) {
+        hamburger.setAttribute('aria-controls', 'mobileMenu');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.addEventListener('click', (event) => {
+            event.preventDefault();
+            if (mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
         });
     }
-    
+
     if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+    }
+
+    if (mobileMenuOverlay) {
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+    }
+
+    if (mobileMenu) {
+        mobileMenu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', closeMobileMenu);
         });
     }
-    
-    if (mobileMenuOverlay) {
-        mobileMenuOverlay.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-            mobileMenuOverlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+
+    // Header search (all pages)
+    document.querySelectorAll('.search-bar').forEach((bar) => {
+        const input = bar.querySelector('.search-input');
+        const button = bar.querySelector('.search-btn');
+
+        if (!input) return;
+
+        if (button) button.setAttribute('aria-label', 'Search');
+
+        function runSearch() {
+            const query = input.value.trim();
+            const shopInput = document.getElementById('searchInput');
+
+            // On the shop page the header input is the live filter input
+            if (shopInput) {
+                if (query) {
+                    shopInput.value = query;
+                    shopInput.dispatchEvent(new Event('input', { bubbles: true }));
+                }
+
+                const results = document.getElementById('productsGrid') || document.querySelector('.products-grid');
+                if (results) results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return;
+            }
+
+            if (!query) {
+                input.focus();
+                return;
+            }
+
+            window.location.href = 'shop.html?search=' + encodeURIComponent(query);
+        }
+
+        if (button) {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                runSearch();
+            });
+        }
+
+        input.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                runSearch();
+            }
         });
+    });
+
+    // Apply a ?search= value when landing on the shop page
+    const searchQuery = new URLSearchParams(window.location.search).get('search');
+    const shopSearchInput = document.getElementById('searchInput');
+    if (searchQuery && shopSearchInput) {
+        shopSearchInput.value = searchQuery;
+        shopSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
     }
     
     // Sticky header

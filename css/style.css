@@ -441,9 +441,23 @@ input, select, textarea {
 }
 
 .hamburger {
-    display: none;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background: transparent;
     padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hamburger:hover span {
+    background: var(--primary-color);
+}
+
+.hamburger:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .hamburger span {
@@ -1063,10 +1077,18 @@ input, select, textarea {
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
     transition: var(--transition);
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.payment-icon:hover {
+.payment-icon:hover,
+.payment-icon:focus-visible {
     transform: translateY(-2px);
+}
+
+.payment-icon:focus-visible {
+    outline: 2px solid var(--primary-color, #ff6b35);
+    outline-offset: 2px;
 }
 
 .payment-icon svg {
@@ -1086,3 +1108,4 @@ input, select, textarea {
     opacity: 1;
     transform: translateY(0);
 }
+
